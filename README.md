@@ -1,12 +1,6 @@
-# React + Vite
+# Blog list
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was created for the CI/CD course conducted by MOOC [Full Stack Open, Part 11](https://fullstackopen.com/en/part11). It uses a React frontend and a Node.js backend, both included in the same project repository. MongoDB is used as the database, and Playwright is used for end-to-end testing. The application is deployed to the cloud using Render web services.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Currently, the project is available at:
+- [bloglist](https://bloglist-dop5.onrender.com/)
