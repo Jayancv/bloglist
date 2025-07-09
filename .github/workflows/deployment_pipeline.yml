@@ -31,6 +31,10 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install chromium
       - name: e2e-test
+        env:
+          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          SECRET: ${{ secrets.SECRET }}
+          PORT: ${{ secrets.PORT }}
         timeout-minutes: 60
         run: npm run e2e-test
       - name: Deploy to Render
