@@ -52,13 +52,15 @@ jobs:
           wait_deploy: true
       - name: Deployment Success
         uses: Ilshidur/action-discord@master
-        if: ${{ success() && github.event_name == 'push' && !contains(join(github.event.commits.*.message, ''), '#skip') }}
+        if: ${{ success() && github.event_name == 'push' && !contains(join(toJson(github.event.commits.*.message)), '#skip') }}
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
           args: |
-            Successfully deployed
+            Successfully deployed 🚀
+            Repo : ${{ github.repository }}
             Commit: ${{ github.sha }}
+            By ${{ github.actor }}
 
       - name: Deployment Failed
         uses: Ilshidur/action-discord@master
@@ -67,8 +69,10 @@ jobs:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with: 
           args: |
-            Deployment failed 
+            Deployment failed ❌
+            Repo : ${{ github.repository }}
             Commit: ${{ github.sha }}
+            By ${{ github.actor }}
 
   tag_release:
     needs: [simple_deployment_pipeline]
