@@ -28,6 +28,15 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
           PORT: ${{ secrets.PORT }}
         run: npm run test
+      - name: Install Playwright Browsers
+        run: npx playwright install chromium
+      - name: e2e-test
+        env:
+          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          SECRET: ${{ secrets.SECRET }}
+          PORT: ${{ secrets.PORT }}
+        timeout-minutes: 60
+        run: npm run e2e-test
       - name: Deploy to Render
         if: ${{ github.event_name == 'push' }}
         uses: JorgeLNJunior/render-deploy@v1.4.5
