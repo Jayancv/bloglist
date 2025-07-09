@@ -19,10 +19,14 @@ jobs:
       - name: Install dependencies 
         run: npm install  
       - name: Check style
-        run: npm run eslint
+        run: npm run lint
       - name: Build 
         run: npm run build  
       - name: Test
+        env:
+          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          SECRET: ${{ secrets.SECRET }}
+          PORT: ${{ secrets.PORT }}
         run: npm run test
       - name: Deploy to Render
         if: ${{ github.event_name == 'push' }}
